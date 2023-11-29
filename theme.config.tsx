@@ -123,7 +123,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.gg/gD7Mmc5XGb",
   },
-  docsRepositoryBase: "https://github.com/iarthstar/always-meticulous---docs",
+  docsRepositoryBase: "https://github.com/honeyhexa/always-meticulous---docs",
   sidebar: {
     titleComponent({ title, type }) {
       if (type === "separator") {
