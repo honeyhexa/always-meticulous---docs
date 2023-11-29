@@ -1,0 +1,5 @@
+{
+    "installing-recorder": "1. Installing the Recorder",
+    "cloud-replay": "2. Setup Tests to Run in CI",
+    "make-check-blocking": "3. Block merging PRs with unacknowledged diffs (optional)"
+}

@@ -1,0 +1,18 @@
+# Speeding up Test Times
+
+## If you're running the tests in GitHub Actions,<br/>using the `report-diffs-action`
+Meticulous test speeds scale roughly linearly with the number of CPUs. You can speed up your tests by switching to a larger GitHub Actions runner. A 2x larger runner will cost twice as much per minute but the tests complete twice as fast. So, assuming most of the job time comes from running the Meticulous tests, rather than building your app, then you'll pay the same amount but your tests will complete twice as fast. We recommend going for a runner with at least 16 cores.
+
+To accelerate the test times even further setup preview URLs and we'll run your tests in our own cluster. This requires publishing a publicly accessible URL for each commit on the main branch, and on the pull request branches. Meticulous can then hit these URLs from our own cluster. This is the recommended approach to using Meticulous.
+
+If you publish these preview URLs to GitHub as GitHub deployments, or use Vercel, then no extra setup is required. Just make sure you have the Meticulous GitHub app installed and have the 'Automatically run Meticulous tests whenever a new deployment is ready' box checked in your Meticulous project settings.
+
+This allows us to parallelize the tests even further. Normally test times will reduce to a couple of minutes.
+
+## If Meticulous is running the tests for you
+
+The tests should normally complete a couple of minutes after the preview URLs are ready.
+
+If you're seeing a long delay between the preview URLs being ready and the Meticulous tests completing then please reach out to the Meticulous support team and we'll take a look into it.
+
+If your preview URLs are taking a while to build then reach out to us and we'd be happy to explore solutions to speed up your build times.

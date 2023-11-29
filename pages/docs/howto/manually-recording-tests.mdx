@@ -1,0 +1,28 @@
+## Manually Recording a Test
+
+In addition to the automatically selected tests that run in CI you can also manually record tests, and, if you wish, specify them to always be run.
+
+You can use the Meticulous CLI to do so:
+
+Create tests
+
+```bash copy
+npx @alwaysmeticulous/cli record --apiToken="<API_TOKEN>"
+```
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+the above command includes your API token. Make sure to keep this secret: it provides access to all your recorded user sessions.
+</Callout>
+
+
+
+- The command will open up a web browser with a blank page. You can now navigate to the site which you want to record a test on. This could be your production URL, or localhost.
+- Your interactions with the site will be recorded. Go through the flow that you wish to record, like signing up.
+- Once you are finished you can close the browser. Meticulous will print out links for the sessions recorded.
+- If you navigate across multiple pages then Meticulous may record one seperate session per page. This allows it to run the tests for the multiple pages in parallel. If it prints out multiple links then often the first ones are the login pages, and it's the last link that you want to use.
+- Open the link to the recorded session, and click on the 'Simulate' tab. Run the command to simulate the session, and check it simulates as intended.
+- Now that the session is recorded Meticulous will automatically test against the session in CI if Meticulous deems it to be one of the sessions that maximizes the test coverage of your application. If you want to force the session to be used then click the "Add to selected sessions" button on the session page. Learn more here.
+- If Meticulous isn't yet setup to run on CI then you can set it up by following the instructions here.

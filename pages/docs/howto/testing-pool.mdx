@@ -1,0 +1,20 @@
+# Selecting Which Sessions to Run
+
+The tests which execute on your pull requests are drawn from a testing pool that is defined in two ways:
+
+Meticulous automatically selects a set of recorded sessions that maximizes coverage of your application using a variety of heuristics. This process has to be requested - once you have more than ten recorded sessions please reach out to us and we will run session selection for you.
+
+You can manually define a set of sessions to be used for testing. This is useful if you have a particular flow that you explicitly want to test or if you would like to validate that Meticulous is working.
+
+Your testing pool will be the union set of the sessions that Meticulous selects for you and the sessions which you define.
+
+## How Meticulous's automated session selection works
+
+Meticulous optimizes two heuristics when choosing which sessions to execute:
+
+The number of unique routes covered. Meticulous is smart enough to figure out that, e.g. /merchant/100 and /merchant/101, are the same route.
+The number of screens per route and the number of screens in total. E.g. if one session tests 50 screens, and another tests 10, Meticulous is more likely to pick the one which tests 50.
+
+## How to force a set of sessions to always be used for testing
+
+Visit your project page and click on the "Sessions" tab. Select the session you want to add and click the "Add to selected sessions" button in the top right hand corner. If the session is already added to the selected sessions, the button will say "Remove from selected sessions".

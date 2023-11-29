@@ -1,0 +1,61 @@
+# Frequently Asked Questions
+
+## How does Meticulous compute the URL to simulate a session against?
+When Meticulous simulates sessions it is configured to simulate the sessions against a particular base URL, which will likely be different to the URL the session was recorded at.
+
+For example, if Meticulous is setup with GitHub actions, then the base URL will be the URL you pass as the 
+appUrl
+ to 
+report-diffs-action
+, for example 
+http://localhost:3000
+.
+
+If Meticulous is setup to use preview URLs, from Vercel or similar services, then the base URL will be the preview URL of the deployment, for example 
+https://tps-reports-app-37tz-initech.vercel.app
+. If there are multiple deployments Meticulous will look for one to an environment that is included under 
+Environments to Test Against
+ in your Meticulous project settings.
+
+When simulating a session, Meticulous takes the URL the session was recorded at and swaps out the origin with the new base URL. So if the session was recorded at 
+https://www.initech.com/some/path?query=paramValue
+, and you're running the Meticulous tests against 
+https://tps-reports-app-37tz-initech.vercel.app
+, then Meticulous will simulate the session at 
+https://tps-reports-app-37tz-initech.vercel.app/some/path?query=paramValue
+.
+
+You'll therefore need to make sure that the base URL you are simulating sessions against (
+https://tps-reports-app-37tz-initech.vercel.app
+) serves up the same app under the same configuration as the base URL sessions are recorded on (
+https://www.initech.com
+).
+
+## How does Meticulous choose which sessions to run?
+See the Selecting Which Sessions to Run page for details.
+
+## What branches does Meticulous need to run on, and against which environments?
+Meticulous works by simulating sessions against the head commit of each pull request and comparing the results to the base commit of the pull request.
+
+It therefore needs to run on your main branch (e.g. main, master or develop) so that it has visual snapshots to compare against. And it also needs to run on any branches that you open pull requests from.
+
+If you're using Vercel, Netlify, or similar preview URLs, then Meticulous will compare snapshots from the preview URL of the base commit on the main branch to snapshots from the preview URL of the head commit of the pull request branch.
+
+In this case the environment variables and configuration you use to run & build your app needs to be the same for the deployments of the main branch (production deploys) and the deployments of pull request branches (preview deploys). If this isn't the case Meticulous could display false screenshot differences.
+
+For example if you configure production deploys of your app (from the main branch) to have a blue banner, and preview deploys of your app (from pull request branches) to have a red banner, then Meticulous would display screenshot diffs of the banner changing from blue to red for every screen. You want to make sure that the only screenshot diffs Meticulous shows are due to changes in the code introduced by the pull request being tested, rather than enviornmental differences between the environments tested on.
+
+You can learn how to avoid this here, and you can learn more about testing across environments here.
+
+If, instead of preview URLs, you're using the 
+report-diffs-action
+ GitHub action, then Meticulous will compare snapshots from running your app from the base commit of the main branch to snapshots from running your app from the head commit of the pull request branch. In this case it's simiarly important to make sure that you compile and run your app with the same configuration for both the main branch and the pull request branches.
+
+## Can I record sessions from one environment (for example, production, or localhost) and simulate them against another environment (for example, a preview URL)?
+Yes. However the sessions may fail to simulate if there are significant differences between the environments. Please see the Record and Simulate on Different Environments page for more details.
+
+## Why does the Meticulous recorder script need to be the first script to execute?
+See the Ensure Recorder Captures All Requests page for more details.
+
+## Where can I reach out for support?
+Reach out to eng@meticulous.ai and we'll be happy to help. You can also join our community discord.

@@ -1,0 +1,13 @@
+# Require approving diffs before merging a PR
+
+If you've installed the Meticulous GitHub App Meticulous will add a check on your PR that is red if there are diffs that haven't been approved yet and becomes green once you click the green 'Approve all Visual Differences' button. This button can be found by clicking on the link in the Meticulous comment.
+
+If you wish you can make this check blocking, so developers will be unable to merge a PR which has visual differences until they have clicked the button to acknowledge the differences.
+
+To do so click on the 'Settings' tab of your repo, and then select the 'Branches' tab:
+
+Meticulous comment
+
+Select your main or master branch, tick the box to 'Require status checks to pass before merging', and add 'Meticulous Tests' to the list of status checks that are required:
+
+Meticulous comment

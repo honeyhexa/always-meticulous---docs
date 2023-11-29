@@ -1,0 +1,12 @@
+# Running tests against existing deployment URLs
+
+If you use Vercel, Netlify or a similar system to generate PR preview URLs you can use the Meticulous GitHub app to test your PRs for you. To set this up:
+
+1. Install the Meticulous GitHub app
+2. Navigate to your project page, click on the 'Settings' tab and make sure the 'Automatically run Meticulous tests whenever a new deployment is ready' checkbox is checked.
+
+Whenever you open a new pull request Meticulous will now simulate a set of sessions against the preview URL before and after the PR, and post a comment to the PR notifying of any changes spotted.
+
+If you have multiple Vercel projects for your GitHub repo, or multiple environments that you deploy the same branches/commits to, then you'll need to let Meticulous know which environments it should run the tests against. You can do so by navigating to your project page and clicking on the 'Settings' tab.
+
+Next step: prevent merging pull requests until the differences have been acknowledged (optional)

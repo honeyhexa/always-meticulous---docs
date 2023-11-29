@@ -1,0 +1,50 @@
+# Meticulous Quickstart
+
+Meticulous recorder is a tool for recording real user sessions. The recorder captures your users' actions and any network requests (and responses) during their session. Please note that although plaintext passwords are redacted, the recorded network requests can include authorization tokens and other headers -- you should therefore only add trusted users to your Meticulous organization. You can either add the recorder to all environments or just internal non-production environments.
+
+## Installation
+import { Steps } from 'nextra/components'
+ 
+<Steps>
+### Sign up
+
+    Sign up at [https://app.meticulous.ai/signup](https://app.meticulous.ai/signup). You will be prompted to create an organization and project.
+
+### Install the Meticulous recorder
+
+Navigate to Your Project in the Meticulous app and copy the below JavaScript snippet and paste it into the `<head>` tag of your site.
+
+```html copy
+<head>
+  ...
+  <script
+    data-project-id="<RECORDING_TOKEN>"
+    data-is-production-environment="<true/false>"
+    src="https://snippet.meticulous.ai/v1/meticulous.js"
+  ></script>
+
+  <!--Meticulous snippet should be added before your app -->
+  ...
+</head>
+```
+
+This snippet loads the Meticulous SDK onto the page.
+
+### Validating installation
+
+    Once you add the Meticulous snippet open your webapp (either locally or on the environment that you injected the snippet into) and record a session by clicking around on your web app.
+
+If the snippet was installed successfully you should be able to view the recorded session in your [Meticulous dashboard](https://app.meticulous.ai/) in the Sessions section.
+
+</Steps>
+
+## Issues / questions?
+
+We're always happy to help you with any issues you encounter while setting up or anything you might be unsure about.
+
+Get in touch by emailing support@meticulous.ai
+
+## Next Steps
+
+Relax and sit down while Meticulous is collecting session data for you
+Setup Meticulous to test your pull requests

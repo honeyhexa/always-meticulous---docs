@@ -1,0 +1,31 @@
+{
+  "index": "Quick Start",
+  "why-meticulous": "Why Meticulous",
+  "sep-1": {
+    "type": "separator",
+    "title": "Getting Started"
+  },
+  "installation": "Installation",
+  "howto": "How To",
+  "faq": "FAQs",
+  "sep-3": {
+    "type": "separator",
+    "title": "More"
+  },
+  "": {
+    "title": "",
+    "type": "page",
+    "href": "https://twitter.com/shuding_",
+    "newWindow": true
+  },
+  "website-link": {
+    "title": "Back to Website ↗",
+    "href": "https://www.meticulous.ai/",
+    "newWindow": true
+  },
+  "app-link": {
+    "title": "Back to App ↗",
+    "href": "https://app.meticulous.ai/",
+    "newWindow": true
+  }
+}
