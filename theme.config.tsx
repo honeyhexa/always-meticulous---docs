@@ -3,6 +3,13 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 import Link from "next/link";
 
 const config: DocsThemeConfig = {
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Meticulous AI - Docs" />
+      <meta property="og:description" content="Catch UI Bugs with Zero Efforts" />
+    </>
+  ),
   logo: (
     <Link legacyBehavior href="/docs">
       <svg
